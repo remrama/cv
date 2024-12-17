@@ -1,0 +1,807 @@
+%%%%
+%%%%
+%%%%
+%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  PREAMBLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% Set up the moderncv document class
+\moderncvstyle[left,details,symbols]{classic}
+\moderncvcolor{black}
+% to set the default font;
+% use '\sfdefault' for the default sans serif font,
+% '\rmdefault' for the default roman one,
+% or any tex font name
+%\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[scale=0.75]{geometry}  % adjusts page margins
+
+% \usepackage{graphicx}
+% \graphicspath{images/}
+
+% Miscellaneous packages
+\usepackage{xspace} % for adding *potential* space after commands with \xspace
+\usepackage[normalem]{ulem} % for strikethrough text with \sout{}
+
+\setlength{\footskip}{136.00005pt}                 % depending on the amount of information in the footer, you need to change this value. comment this line out and set it to the size given in the warning
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% font loading
+% for luatex and xetex, do not use inputenc and fontenc
+% see https://tex.stackexchange.com/a/496643
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+  \setmonofont{Latin Modern Mono}
+  \setmathfont{Latin Modern Math} 
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+% document language
+\usepackage[english]{babel}
+
+%%%% Load icon packages
+% The Comprehensive LaTeX Symbol List - Symbols accessible from LaTeX
+% https://ctan.org/pkg/comprehensive
+\usepackage{academicons}
+% \usepackage{simpleicons}
+\usepackage{fontawesome5}
+\usepackage{typicons}
+
+% Icon shortcuts
+\newcommand*{\iconKeyPublication}{\faKey}
+\newcommand*{\iconTrainee}{\faUserGraduate}
+\newcommand*{\iconCoPI}{\faUserFriends}
+\newcommand*{\iconOpenData}{\aiOpenData}
+\newcommand*{\iconOpenArticle}{\aiOpenAccess}
+\newcommand*{\iconOpenMaterials}{\aiOpenMaterials}
+\newcommand*{\iconInvited}{\faInbox}
+\newcommand*{\iconPlanned}{\faFastForward}
+\newcommand*{\iconCancelled}{\faBan}
+\newcommand*{\iconVirtual}{\faWifi}
+\newcommand*{\osfsocialsymbol}{\aiOSF~}
+\newcommand*{\zoterosocialsymbol}{\aiZotero~}
+\newcommand*{\zenodosocialsymbol}{\aiZenodo~}
+\renewcommand*{\addresssymbol}{{\faMapMarker*}~}
+
+
+% personal data
+\name{Remington}{Mallett}
+% \name{Remington}{\\Mallett}
+\title{Cognitive neuroscience of sleep and dreams}
+\address{Montr\'eal, Qu\'ebec, CA}
+\email{mallett.remy@gmail.com}
+\homepage{remrama.com}
+\social[orcid]{0000-0001-6183-3098}
+\social[researchgate]{Remington-Mallett}
+\social[googlescholar]{JyiK9mMAAAAJ}
+\social[osf][osf.io/wvr3s]{wvr3s}
+\social[zotero][www.zotero.org/remrama]{remrama}
+\social[github]{remrama}
+\social[youtube]{remrama}
+% \social[maps][maps.app.goo.gl/hM9bvh1CLmvpUpqg9]{Universit\'e de Montr\'eal}
+% \extrainfo{Additional info here}
+% \photo[100pt][3pt]{picture} % 64pt is the height the picture must be resized to, 0.4pt is the thickness of the frame around it
+% \quote{I love sleep. My life has the tendency to fall apart when I'm awake.\\ - Ernest Hemingway}
+% \quote{He felt that his whole life was some kind of dream and he sometimes wondered whose it was and whether they were enjoying it.\\ - Douglas Adams}
+% \quote{Dreams are real as long as they last.\\ Can we say more of life?\\ - Havelock Ellis}
+% \quote{Only in our dreams are we free.\\ The rest of the time we need wages.\\ - Terry Pratchett}
+% \quote{Everything in the world is exactly the same.\\ - Kanye West, c.2014}
+\quote{
+Waking life is a dream guided by the senses.
+\newline{- Rodolfo Llin{\'a}s}
+% \vspace{2mm}
+% Life is but a dream that you manifested slowly.\\
+% - Victoria Mon{\'e}t\\
+% \vspace{2mm}
+% % I'll never leave the streets, it's all in my mind.\\
+% Even with sleep, I'm duckin' nines in my dreams.\\
+% Sirens, wide awake. Why'd I think it would change?\\
+% - Nas
+% % - Nasir bin Olu Dara Jones
+}
+
+
+% bibliography adjustments (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+%\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+% \renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]} % uncomment to add numbers to reference list
+
+% great bibtex formattinge guide
+% https://tex.stackexchange.com/a/13076
+
+% Setting up footnotes
+% http://www.hansenlab.org/cv_bibliography_tex
+
+
+% bibliography with mutiple entries
+% https://tex.stackexchange.com/a/123818
+\usepackage{csquotes}
+\usepackage[style=apa,sorting=ydmdddnt,dashed=false,maxbibnames=99,giveninits=true,uniquename=false,backend=biber,defernumbers=true]{biblatex}
+
+% ydnt
+\DeclareSortingTemplate{ydmdddnt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort[direction=descending]{
+    \field{sortyear}
+    \field{year}
+    \literal{9999}
+  }
+  \sort[direction=descending]{
+    \field{month}
+    \field{day}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+}
+
+% % Customizing the journal title format
+% % Redefine the citation command to include the journal title
+% \DeclareCiteCommand{\cite}[\mkbibparens]
+%   {\usebibmacro{prenote}}
+%   {\usebibmacro{citeindex}%
+%    \printnames{labelname}%
+%    \setunit{\addcomma\space}%
+%    \printfield{year}%
+%    \setunit{\addcomma\space}%
+%    \mkbibemph{\printfield{shortjournal}}}
+%   {\multicitedelim}
+%   {\usebibmacro{postnote}}
+
+
+\usepackage[normalem]{ulem} % for underlining author annotations
+
+% http://www.hansenlab.org/cv_bibliography_tex
+%% Bibliography annotations
+%% bibtex keys:
+%%  - note (inserted in brackets between title and journal)
+%%  - addendum (inserted after doi)
+%%  - annotation (inserted on newline)
+%% Author+annotation key options
+%%  - self
+%%  - trainee
+%%  - sharedfirst
+%%  - sharedlast
+%%  - keypub (always first author, bc intended for prefacing whole citation)
+
+% \renewcommand*{\mkbibnamefamily}[1]{%
+% \ifitemannotation{trainee}
+%     {\textsuperscript{\faPaw}}{}%
+% \ifitemannotation{self}
+%     {\mkbibbold{#1}}{#1}%
+% }
+\renewcommand*{\mkbibnamefamily}[1]{%
+\ifitemannotation{keypub}
+    {\iconKeyPublication\addspace}{}%
+\ifitemannotation{self}
+    {\mkbibbold{#1}%
+    }{\ifitemannotation{trainee}{\uline{#1}}%
+    {#1}%
+    }%
+}
+
+\renewcommand*{\mkbibnamegiven}[1]{%
+\ifitemannotation{self}
+    {\mkbibbold{#1}}{#1}%
+% \ifitemannotation{trainee}
+%     {\textsuperscript{\iconTrainee}}{}%
+\ifitemannotation{sharedfirst}
+    {\textsuperscript{*}}{}%
+\ifitemannotation{sharedlast}
+    {\textsuperscript{$\dagger$}}{}%
+}%%
+
+
+%% Remove period at the end of each entry
+%% This is just for entries/inpress that have no DOI
+%% and also when the period gets added back to dois when icons are added.
+% The punct at the end of every entry
+\renewcommand*{\finentrypunct}{}
+% \renewcommand*{\prenotedelim}{}
+
+% \renewbibmacro*{doi+eprint+url}{doi}
+
+% \renewbibmacro*{date}{}
+% % \renewbibmacro*{date+extradate}{}
+% \renewbibmacro*{issue+date}{}
+% \newcommand*{\bibyear}{}
+% \renewbibmacro{in:}{} % https://tex.stackexchange.com/a/10686
+% % \DeclareFieldFormat*{title}{#1} % remove quotes from title
+% \DeclareFieldFormat[article]{title}{#1} % remove quotes from titles
+
+% https://tex.stackexchange.com/a/11083
+% I think this puts first and middle initials a bit closer to each other
+\renewrobustcmd*{\bibinitdelim}{\,}
+
+% https://tex.stackexchange.com/a/97729
+% No dot before number of articles
+% \usepackage{xpatch}
+% \xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
+% \DeclareFieldFormat[article]{number}{\mkbibparens{#1}}% Number of articles in parentheses
+
+\defbibenvironment{bibliography}
+  {\list
+     {\iffieldequals{year}{\bibyear}
+        {}
+        {\printfield{year}%
+         \savefield{year}{\bibyear}}}
+     {\setlength{\topsep}{0pt}% layout parameters based on moderncvstyleclassic.sty
+      \setlength{\labelwidth}{\hintscolumnwidth}%
+      \setlength{\labelsep}{\separatorcolumnwidth}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \leftmargin\labelwidth%
+      \advance\leftmargin\labelsep}%
+      \sloppy\clubpenalty4000\widowpenalty4000}
+  {\endlist}
+  {\item}
+
+\addbibresource{preprints.bib}
+\addbibresource{publications.bib}
+\addbibresource{presentations.bib}
+
+% don't let it do 2020a 2020b
+\AtEveryBibitem{\clearfield{extradate}}
+
+% https://tex.stackexchange.com/a/328286
+% \newcommand{\makeauthorbold}[1]{%
+%   \DeclareNameFormat{author}{%
+%     \ifthenelse{\value{listcount}=1}
+%     {%
+%       {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\namepartfamily\addcomma\addspace \namepartgiveni}}{\namepartfamily\addcomma\addspace \namepartgiveni}}
+%       %
+%     }{\ifnumless{\value{listcount}}{\value{liststop}}
+%         {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}
+%         {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}%
+%       }
+%     \ifthenelse{\value{listcount}<\value{liststop}}
+%     {\addcomma\space}{}
+%   }
+% }
+% \makeauthorbold{Mallett}
+
+
+\begin{document}
+
+\input{letters/leidos}
+
+
+\makecvtitle
+
+% \section{Interests}
+% \cvitem{Sleep health}{Do dreams and other cognitive aspects of sleep influence sleep quality?}
+% \cvitem{Dream engin.}{How can dreams be influenced by external manipulations?}
+% \cvitem{Accessibility}{I strive to make all my tools, data, and papers freely available.}
+% \cvitem{Mentorship}{I enjoy training new students, see Articles list where trainees are denoted.}
+% \cvitem{Big Data}{Dreams are complicated, and I think that we need to see lots of them to understand them.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Positions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cventry
+    {2023--present}
+    {Postdoctoral Fellow}
+    {Center for Advanced Research in Sleep Medicine}
+    {}
+    {}
+    {
+        % Secondary affiliation: \textit{University of Montreal}\\
+        % PI: Michelle Carr \& Tore Nielsen
+        Secondary affiliation: \textit{University of Montreal}
+        \newline{PI: Michelle Carr \& Tore Nielsen}
+    }
+
+\cventry
+    {2021--2023}
+    {Postdoctoral Fellow}
+    {Northwestern University}
+    {}
+    {}
+    {PI: Ken A. Paller}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Degrees}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cventry
+    {2016--2021}
+    {PhD in Psychology}
+    {University of Texas at Austin}
+    {}
+    {}
+    {
+        Cognitive Neuroscience Area specialization
+        \newline{Advisor: Jarrod A. Lewis-Peacock}
+        \newline{External committee: Jessica A. Church, David M. Schnyer, Thomas Sprague}
+        \newline{Dissertation: The crossroads of working memory and attention}
+    }
+
+\cventry
+    {2013--2016}
+    {BSc in Psychology}
+    {University of Missouri at St. Louis}
+    {}
+    {}
+    {
+        Biology minor, Neuroscience certificate
+        \newline{Advisor: Suzanne E. Welcome}
+    }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%  Articles  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% https://tex.stackexchange.com/a/123818
+\nocite{*}
+\defbibnote{legendarticles}{
+    \iconKeyPublication~key~publication \hspace{8pt}
+    \faUnderline~trainee \hspace{8pt}
+    \iconOpenArticle~open~article \hspace{8pt}
+    \iconOpenMaterials~open~materials \hspace{8pt}
+    \iconOpenData~open~data \hfill
+    % \faAngleRight~submitted \hfill
+    % \faAngleDoubleRight\~under~review \hfill
+    % \faForward~under~revision \hfill
+    % \faSpinner~submitted \hfill
+    % \faUserSecret~under~review \hfill
+    % \faFlagCheckered~under~revision \hfill
+    % \faThumbsUp~in~press \hfill
+    % \faHourglass~submitted \hfill
+    % \faHourglassStart~under~review \hfill
+    % \faHourglassHalf~under~revision \hfill
+    % \textsuperscript{*}~Shared~first~author\\
+    % \textsuperscript{$\dagger$}~Shared~senior~author
+    \vspace{4pt}
+}
+
+\begin{flushleft}
+    \printbibliography[type=article,title={Articles},prenote=legendarticles]
+\end{flushleft}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Grants}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iconCoPI~awarded~to~co-PI \hspace{8pt}
+\iconTrainee~awarded~to~trainee \hfill
+\vspace{8pt}
+
+\cventry
+    {2023--2025}
+    {\iconCoPI~SSHRC Insight Grant}
+    {Social Sciences and Humanities Research Council}{}{}
+    {
+        Tracking dreams with wearable technology\\
+        Principal investigator: Melanie Rosen
+    }
+
+\cventry
+    {2023}
+    {\iconTrainee~Summer Undergraduate Research Grant}
+    {Northwestern University}{}{}
+    {
+        Using targeted memory reactivation to promote trait empathy during sleep\\
+        Trainee: Alysiana Martinez
+    }
+
+\cventry
+    {2023}
+    {\iconTrainee~Undergraduate Academic Project Grant}
+    {Oxford University}{}{}
+    {
+        Combining neuroscience and machine learning for an objective window into dream content\\
+        Trainee: Qiaorong Yu
+    }
+
+\cventry
+    {2021--2022}
+    {Dream Science Foundation Grant}
+    {IASD}{}{}
+    {A technique to stabilize lucid dream awareness using auditory cues}
+
+\cventry
+    {2020--2021}
+    {Psi Chi Graduate Research Grant}
+    {APA}{}{}
+    {Increasing working memory abilities through slow-wave sleep stimulation}
+
+\cventry
+    {2019--2020}
+    {Dream Science Foundation Grant}
+    {IASD}{}{}
+    {Structuring the variety of sleep phenomenology with text mining}
+
+\cventry
+    {2019--2020}
+    {Boehringer Ingelheim Fonds Travel Grant}
+    {BIF}{}{}
+    {Sleep communication as a model for detecting awareness in locked-in syndrome}
+
+\cventry
+    {2018--2019}
+    {Imaging Research Center Pilot Grant}
+    {UT Austin}{}{}
+    {Recovery of unattended memory items after interference}
+
+\cventry
+    {2017--2018}
+    {Imaging Research Center Pilot Grant}
+    {UT Austin}{}{}
+    {Double decoding of working memory representations}
+
+\cventry
+    {2014--2015}
+    {Psi Chi Undergraduate Research Grant}
+    {APA}{}{}
+    {Objective measurement of a cognitive task during a lucid dream}
+
+\cventry
+    {2014--2015}
+    {College of Arts \& Sciences Undergraduate Research Grant}
+    {UMSL}{}{}
+    {Does lucid dreaming improve recall of briefly presented visual scenes?}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Awards and Fellowships}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvitemwithcomment
+{2023}
+{Top-ranking Abstract at the Society for Affective Science Conference}
+{SAS}
+
+\cvitemwithcomment
+{2021}
+{\textbf{Department of Psychology Outstanding Dissertation Award}}
+{\textbf{UTA}}
+
+% \cvitemwithcomment{2020}{\textbf{Ruth L. Kirschstein Institutional National Research Service Award (T32)}}{\textbf{NIH}}
+\cvitemwithcomment
+{2020}
+{\textbf{Ruth L. Kirschstein Institutional NRSA (T32)}}
+{\textbf{NIH}}
+
+\cvitemwithcomment
+{2020}
+{\textbf{Outstanding Scholars in Neuroscience Award Program (OSNAP)}}
+{\textbf{NIH}}
+
+\cvitemwithcomment
+{2020}
+{University Graduate Continuing Fellowship}
+{UTA}
+
+\cvitemwithcomment
+{2019}
+{\textbf{Sleep Research Society Mentor-Mentee Award}}
+{\textbf{SRS}}
+
+\cvitemwithcomment
+{2018}
+{John Wallace Dallenbach Fellowship}
+{UTA}
+
+\cvitemwithcomment
+{Nov 2018}
+{Graduate Student Professional Development Award}
+{UTA}
+
+\cvitemwithcomment
+{May 2018}
+{Graduate Student Professional Development Award}
+{UTA}
+
+\cvitemwithcomment
+{2018}
+{Center for Learning \& Memory Travel Award}
+{UTA}
+
+\cvitemwithcomment
+{2016}
+{Ernest Hartmann Award for Student Research}
+{IASD}
+
+\cvitemwithcomment
+{2014}
+{John J. Boswell Psi Chi Scholarship Award}
+{APA}
+
+\cvitemwithcomment
+{2014}
+{Outstanding Poster in Natural and Life Sciences}
+{UMSL}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvitem
+{Macro}{
+    neuroimaging,
+    polysomnography,
+    natural~language~processing,
+    data~management
+}
+
+\cvitem
+{Micro}{
+    machine~learning,
+    sleep~staging,
+    data~visualization,
+    wearables
+}
+
+\cvitem
+{Languages}{
+    Python, MATLAB, R, Shell, \LaTeX
+}
+
+\cvitem
+{Neuroimaging}{
+    FSL, FreeSurfer, MNE, AFNI, fMRIPrep
+}
+
+\cvitem
+{Linguistics}{
+    spaCy, Gensim, NLTK, scikit-learn
+}
+
+% \cvitem{Programming}{Python primarily, R and \LaTeX\addspace as needed}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Software Development}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\softwareitem}[5]{
+    \cvitemwithcomment
+    {#5}
+    {\textbf{#1}, #2}
+    {\httpslink[#4~\faGithub]{github.com/#3}}
+}
+
+\softwareitem
+{YASA}
+{Analysis and visualization of polysomnographic data}
+{raphaelvallat/yasa}
+{major contributor}
+{active}
+
+\softwareitem
+{Pingouin}
+{Statistics in Python}
+{raphaelvallat/pingouin}
+{minor contributor}
+{active}
+
+\softwareitem
+{Flicker}
+{Closed-loop lucid dream communication device}
+{remrama/flicker}
+{maintainer}
+{archived}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Service}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \cvitem{Reviewer}{Cerebral Cortex \hfill International Journal of Dream Research}
+% \cvitem{}{Consciousness and Cognition \hfill Hippocampus}
+% \cvitem{}{Dreaming}
+
+% \cvdoubleitem{Reviewer}{Cerebral Cortex}{}{International Journal of Dream Research}
+% \cvitem{}{Dreaming \hfill Philosophy and the Mind Sciences}
+% \cvitem{}{Psychological Bulletin \hfill}
+% \cvitem{}{Invited reviewer}
+% \cvlistdoubleitem{Cerebral Cortex}{Dreaming}
+% \cvlistdoubleitem{Hippocampus}{International J of Dream Research}
+% \cvlistdoubleitem{Consciousness and Cognition}{}
+\cventry
+{2024--2025}
+{Guest Editor}
+{Dreaming}
+{Special Issue on Lucid Dreaming}{}
+{}
+
+\cventry
+{2021--present}
+{Research Committee Member}
+{Int Assoc Study Dreams}
+{IASD}{}
+{}
+
+\cventry
+{2021--present}
+{Continuing Education (CE) Committee Chair}
+{Int Assoc Study Dreams}
+{IASD}{}
+{}
+
+\cventry
+{2021--present}
+{Member}
+{American Psychological Association}
+{APA}{}
+{}
+
+\cventry{2021--present}{Member}{American Academy of Sleep Medicine}{AASM}{}{}
+\cventry{2021--2024}{Executive Board Member}{Int Assoc Study Dreams}{IASD}{}{}
+\cventry{2019--present}{Member}{Sleep Research Society}{SRS}{}{}
+\cventry{2018--2020}{Member}{Psychonomic Society}{}{}{}
+\cventry{2017--present}{Member}{Cognitive Neuroscience Society}{CNS}{}{}
+\cventry{2017--present}{Member}{Society for Neuroscience}{SfN}{}{}
+\cventry{2017--2021}{Member}{Vision Sciences Society}{VSS}{}{}
+\cventry{2016--present}{Member}{International Association for the Study of Dreams}{IASD}{}{}
+\cventry{2015--present}{Member}{Psi Chi International Honor Society}{}{}{}
+
+
+% \cvitem{}{Memberships}
+% \cvlistdoubleitem{American Psychological Association}{Sleep Research Society}
+% \cvlistdoubleitem{Psi Chi International Honor Society}{Society for Neuroscience}
+% \cvlistdoubleitem{Psychonomic Society}{Vision Sciences Society}
+
+
+% \section{Mentorship}
+% \cventry{2024-2026}{Kevala Dodge}{Carnegie Vanguard High School AP Research\newline Analyzing Reddit to determine the effect of semaglutide use on nightmares}{}{}{}
+% \cvlistdoubleitem{Consciousness and Cognition}{sss}
+% \cvlistitem{e}
+% \cventry{2023-2024}{Daisy Star}{Briarcliff High School Science Research Program}{}{}{\begin{itemize}
+%     \item 1\textsuperscript{st} place in Behavioral Science at Somers Science Fair
+%     \item 2\textsuperscript{nd} place in Computational Biology at Regeneron-Westchester Science and Engineering Fair (WESEF)
+%     \item Regeneron Biomedical Science Award at Regeneron-Westchester Science and Engineering Fair (WESEF)
+%     \item 3\textsuperscript{rd} place in Computational Biology at New York State Science and Engineering Fair (NYSSEF)
+% \end{itemize}}
+% \cventry{2023-2024}{Daisy Star}{Briarcliff High School Science Research Program}{}{}{Novel dream emotion decoder}
+% \cvlistitem{1\textsuperscript{st} place in Behavioral Science at Somers Science Fair}
+% \cvlistitem{2\textsuperscript{nd} place in Computational Biology at Regeneron-Westchester Science and Engineering Fair (WESEF)}
+% \cvlistitem{Regeneron Biomedical Science Award at Regeneron-Westchester Science and Engineering Fair (WESEF)}
+% \cvlistitem{3\textsuperscript{rd} place in Computational Biology at New York State Science and Engineering Fair (NYSSEF)}
+% \cventry{2023-2024}{Daisy Star}{Briarcliff High School Science Research Program\newline Novel dream emotion decoder}{}{}{1\textsuperscript{st} place in Behavioral Science at Somers Science Fair\\2\textsuperscript{nd} place in Computational Biology at Regeneron-Westchester Science and Engineering Fair (WESEF)\\Regeneron Biomedical Science Award at Regeneron-Westchester Science and Engineering Fair (WESEF)\\3\textsuperscript{rd} place in Computational Biology at New York State Science and Engineering Fair (NYSSEF)}
+% \cventry{2022-2024}{Abigail Roman}{White Plains High School Science Research Program\newline Finding the optimal brain state for lucid-dream induction}{}{}{White Plains High School Science Research Achievement Award\\2\textsuperscript{nd} place in Medicine \& Health at Somers Science Fair\\3\textsuperscript{rd} place (senior year) in Neuroscience at Regeneron-Westchester Science and Engineering Fair (WESEF)\\2\textsuperscript{nd} place (junior year) in Neuroscience at the Regeneron-Westchester Science and Engineering Fair (WESEF)\\1\textsuperscript{st} Place in Medicine and Medical Science \& Technology at the Tri-County Science and Engineering Fair\\5\textsuperscript{th} place at 
+% Westchester-Rockland Junior Science \& Humanities Symposium (WR-JSHS)\\Science Teachers Association of New York State (STANYS) New York State (NYS) Science Congress Nominee}
+% \cventry{2022-2023}{Aito Okamoto}{Carnegie Vanguard High School AP Research\newline Testing the dream-lag effect using real-world data}{}{}{Outstanding AP Research Project award}
+% \cventry{2021-2023}{Norah Wolk}{Marin Academy Research Collaborative (MARC) Program\newline Inducing lucid dreams by reactivating mindfulness during sleep}{}{}{}
+% \cventry{2021-2023}{Cameron Sandell}{John Jay High School Science Research Program\newline Can people intentionally wake up from a dream?}{}{}{\href{https://www.societyforscience.org/regeneron-sts/2023-scholars/}{Regeneron Science Talent Search (STS) scholar}\\IASD Ernest Hartmann Student Research Award}
+% \cventry{2021-2023}{Cameron Sandell}{John Jay High School Science Research Program\newline Can people intentionally wake up from a dream?}{}{}{}
+% \cvlistitem{\href{https://www.societyforscience.org/regeneron-sts/2023-scholars/}{Regeneron Science Talent Search (STS) scholar}}
+% \cvlistitem{IASD Ernest Hartmann Student Research Award}
+
+
+% \section{Teaching}
+% \cventry{Fall 2019}{Statistics and Research Design}{Assistant Instructor}{UT Austin}{}{}
+% \cventry{Spring 2017}{Cognitive Science of Religion}{Assistant Instructor}{UT Austin}{}{}
+% \cventry{Fall 2016}{Cognitive Psychology}{Assistant Instructor}{UT Austin}{}{}
+% \cventry{Spring 2015}{Human Learning \& Memory}{Assistant Instructor}{UMSL}{}{}
+% \cventry{Spring 2015}{Emotions and the Brain}{Assistant Instructor}{UMSL}{}{}
+% \cventry{Fall 2014/5}{Human Biology}{Tutor}{UMSL}{}{}
+% \cventry{Spri. 2014/5}{Biology -- from Molecules to Organisms}{Tutor}{UMSL}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Teaching}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*{\teachingitem}[4]{
+    \cvitemwithcomment{#1}{#2}{#3}
+}
+
+\teachingitem
+{Fall 2019}
+{Statistics and Research Design}
+{Assistant Instructor}
+{UT Austin}
+
+\teachingitem
+{Spring 2017}
+{Cognitive Science of Religion}
+{Assistant Instructor}
+{UT Austin}
+
+\teachingitem
+{Fall 2016}
+{Cognitive Psychology}
+{Assistant Instructor}
+{UT Austin}
+
+\teachingitem
+{Spring 2015}
+{Human Learning \& Memory}
+{Assistant Instructor}
+{UMSL}
+
+\teachingitem
+{Spring 2015}
+{Emotions and the Brain}
+{Assistant Instructor}
+{UMSL}
+
+\teachingitem
+{Fall 2014\&5}
+{Human Biology}
+{Tutor}
+{UMSL}
+
+\teachingitem
+{Spri. 2014\&5}
+{Biology -- from Molecules to Organisms}
+{Tutor}
+{UMSL}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Outreach}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cventry{2023}{Cognitive Neuroscience Society Blog}{}{}{}{\httpslink[``Mentorship Enables a High School Senior to Lead Sleep Research Study'']{www.cogneurosociety.org/mentorship-enables-a-high-school-senior-to-lead-sleep-research-study}}
+\cventry{2020}{Invited speaker at UT OLLI FORUM seminar series}{ Austin, Texas}{}{}{Delivered ``The Science of Lucid Dreaming'' seminar to lifelong learning audience.}
+\cventry{2019}{Guest speaker at Cross Keys Middle School}{St. Louis, MO}{}{}{Communicated neuroscience of memory and dreams to middle school students.}
+\cventry{2018}{Dell Medical School Health Sciences Summer Camp}{Austin, TX}{}{}{Designed and taught neuroscience lesson plans for middle and high school students.}
+\cventry{2017}{Dell Medical School Health Sciences Summer Camp}{Austin, TX}{}{}{Designed and taught neuroscience lesson plans for middle and high school students.}
+\cventry{2017}{Neuroscience Undergraduate Reading Program}{Austin, TX}{}{}{Mentored undergraduate neuroscience students on the research process.}
+\cventry{2017}{IE Pre-Graduate School Internship}{Austin, TX}{}{}{Mentored undergraduate students on the graduate application process.}
+\cventry{2017}{Quirks \& Quarks CBC radio interview}{}{}{}{Public radio interview, \httpslink[``Can we control computers with our dreams?'']{www.cbc.ca/radio/quirks/don-t-pee-in-the-pool-bees-play-ball-and-lucid-dreaming-1.4008562/can-we-control-computers-with-our-dreams-1.4008629}}
+\cventry{2016}{Science Center First Fridays: Dreams and Nightmares}{St. Louis, MO}{}{}{Communicated science behind the movie Inception to an audience of $\sim$500 and ran a lucid dream induction workshop.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%  REFERENCES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{References}
+
+\newcommand*{\referenceitem}[3]{%
+    \cvitemwithcomment{#1}{#2}{\emaillink{#3}}%
+}
+
+\referenceitem{Pdoc advisor}{Michelle Carr}{michelle.carr@umontreal.ca}
+\referenceitem{Collaborator}{Tore Nielsen}{tore.nielsen@umontreal.ca}
+\referenceitem{Pdoc advisor}{Ken A. Paller}{kap@northwestern.edu}
+\referenceitem{Collaborator}{James W. Pennebaker}{pennebaker@utexas.edu}
+% \referenceitem{Cristine H. Legare}{legare@utexas.edu}
+\referenceitem{PhD advisor}{Jarrod A. Lewis-Peacock}{jalewpea@utexas.edu}
+% \referenceitem{Martin Dresler}{martin.dresler@donders.ru.nl}
+% \referenceitem{Gregory Scott Sparrow}{gregory.sparrow@utrgv.edu}
+% \referenceitem{Suzanne Welcome}{swelcome@unr.edu}
+
+
+\nocite{*}
+\defbibnote{legendpresentations}{
+    \iconInvited~invited \hspace{8pt}
+    \iconVirtual~moved~virtual \hspace{8pt}
+    \iconCancelled~cancelled \hspace{8pt}
+    \iconPlanned~planned \hfill
+    \vspace{4pt}
+}
+\begin{flushleft}
+    \printbibliography[type=booklet,title={Presentations},prenote=legendpresentations]
+\end{flushleft}
+
+
+
+\end{document}
