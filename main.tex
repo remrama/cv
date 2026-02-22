@@ -6,8 +6,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  PREAMBLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\PassOptionsToPackage{nopatch=footnote}{microtype}  % Surpress footnote warning
 \documentclass[11pt,a4paper,sans]{moderncv}
+
+% \usepackage{silence}
+% \WarningFilter{biblatex}{legacy year field}
 
 % Set up the moderncv document class
 \moderncvstyle[left,details,symbols]{classic}
@@ -269,8 +272,16 @@
 % }
 % \makeauthorbold{Mallett}
 
+% \setlength{\footwidth}{\textwidth}
+\nopagenumbers{}
+% \usepackage{lastpage}
+% \fancyfoot[r]{\thepage}
+% \fancyfoot[r]{\upshape\small\thepage/\pageref*{LastPage}}
+
+% \overfullrule=10pt
 
 \begin{document}
+
 
 \input{letters/leidos}
 
