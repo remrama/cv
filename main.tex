@@ -132,6 +132,7 @@
     \field{sortkey}
   }
   \sort[direction=descending]{
+    \field{pubstate}
     \field{sortyear}
     \field{year}
     \literal{9999}
@@ -232,12 +233,46 @@
 % \xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
 % \DeclareFieldFormat[article]{number}{\mkbibparens{#1}}% Number of articles in parentheses
 
+% Custom publication states
+\NewBibliographyString{underreview}
+\NewBibliographyString{underrevision}
+
+% Custom strings for publication states
+\DefineBibliographyStrings{english}{
+  forthcoming = {forthcoming},
+  inpreparation = {in prep},
+  inpress = {in press},
+  prepublished = {prepublished},
+  submitted = {submitted},
+  underreview = {under review},
+  underrevision = {under revision},
+}
+
+% Custom sorting order for publication states
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=pubstate, match=inpreparation, fieldset=sortyear, fieldvalue={3005}]
+      \step[fieldsource=pubstate, match=submitted, fieldset=sortyear, fieldvalue={3004}]
+      \step[fieldsource=pubstate, match=underreview, fieldset=sortyear, fieldvalue={3003}]
+      \step[fieldsource=pubstate, match=underrevision, fieldset=sortyear, fieldvalue={3002}]
+      \step[fieldsource=pubstate, match=inpress, fieldset=sortyear, fieldvalue={3001}]
+      \step[fieldsource=pubstate, match=forthcoming, fieldset=sortyear, fieldvalue={3000}]
+    }
+  }
+}
+
 \defbibenvironment{bibliography}
   {\list
-     {\iffieldequals{year}{\bibyear}
-        {}
-        {\printfield{year}%
-         \savefield{year}{\bibyear}}}
+     {\iffieldundef{year}
+        {\iffieldequals{pubstate}{\bibpubstate}
+           {}
+           {\printfield{pubstate}%
+            \savefield{pubstate}{\bibpubstate}}}
+        {\iffieldequals{year}{\bibyear}
+           {}
+           {\printfield{year}%
+            \savefield{year}{\bibyear}}}}
      {\setlength{\topsep}{0pt}% layout parameters based on moderncvstyleclassic.sty
       \setlength{\labelwidth}{\hintscolumnwidth}%
       \setlength{\labelsep}{\separatorcolumnwidth}%
@@ -281,7 +316,6 @@
 % \overfullrule=10pt
 
 \begin{document}
-
 
 \input{letters/leidos}
 
