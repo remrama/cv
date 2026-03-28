@@ -1,10 +1,18 @@
 {
+    "[latex]": {
+        "editor.wordWrap": "on"
+    },
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.linting.run": "onSave",
+    "latex-workshop.linting.chktex.enabled": true,
+    "latex-workshop.linting.chktex.exec.path": "chktex",
+    "latex-workshop.latex.outDir": "out",
     "latex-workshop.latex.tools": [
         {
             "name": "biber",
             "command": "biber",
             "args": [
-                "--output-directory=out",
+                "--output-directory=%OUTDIR%",
                 "%DOCFILE%"
             ]
         },
@@ -15,7 +23,7 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "-output-directory=out",
+                "-output-directory=%OUTDIR%",
                 "%DOC%"
             ]
         },
@@ -26,7 +34,7 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "-output-directory=out",
+                "-output-directory=%OUTDIR%",
                 "%DOC%"
             ]
         }

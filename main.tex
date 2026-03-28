@@ -1,12 +1,4 @@
-%%%%
-%%%%
-%%%%
-%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  PREAMBLE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\PassOptionsToPackage{nopatch=footnote}{microtype}  % Surpress footnote warning
+\PassOptionsToPackage{nopatch=footnote}{microtype} % Suppress footnote warning
 \documentclass[11pt,a4paper,sans]{moderncv}
 
 % \usepackage{silence}
@@ -21,7 +13,7 @@
 % or any tex font name
 %\renewcommand{\familydefault}{\sfdefault}
 
-\usepackage[scale=0.75]{geometry}  % adjusts page margins
+\usepackage[scale=0.75]{geometry} % adjusts page margins
 
 % \usepackage{graphicx}
 % \graphicspath{images/}
@@ -30,9 +22,9 @@
 \usepackage{xspace} % for adding *potential* space after commands with \xspace
 \usepackage[normalem]{ulem} % for strikethrough text with \sout{}
 
-\setlength{\footskip}{136.00005pt}                 % depending on the amount of information in the footer, you need to change this value. comment this line out and set it to the size given in the warning
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
-%\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\setlength{\footskip}{136.00005pt} % depending on the amount of information in the footer, you need to change this value. comment this line out and set it to the size given in the warning
+%\setlength{\hintscolumnwidth}{3cm} % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 % font loading
 % for luatex and xetex, do not use inputenc and fontenc
@@ -77,7 +69,6 @@
 \newcommand*{\zenodosocialsymbol}{\aiZenodo~}
 \renewcommand*{\addresssymbol}{{\faMapMarker*}~}
 
-
 % personal data
 \name{Remington}{Mallett}
 % \name{Remington}{\\Mallett}
@@ -110,7 +101,6 @@
 
 % Setting up footnotes
 % http://www.hansenlab.org/cv_bibliography_tex
-
 
 % bibliography with mutiple entries
 % https://tex.stackexchange.com/a/123818
@@ -272,7 +262,7 @@
       \setlength{\labelsep}{\separatorcolumnwidth}%
       \setlength{\itemsep}{\bibitemsep}%
       \leftmargin\labelwidth%
-      \advance\leftmargin\labelsep}%
+      \advance\leftmargin\labelsep}% chktex 41
       \sloppy\clubpenalty4000\widowpenalty4000}
   {\endlist}
   {\item}
@@ -316,7 +306,7 @@
 % Move socials from preamble to here
 % so they don't show up in cover letter.
 % Change happened in v2.5.1
-\social[orcid]{0000-0001-6183-3098}
+\social[orcid]{0000-0001-6183-3098} % chktex 8
 \social[researchgate]{Remington-Mallett}
 \social[googlescholar]{JyiK9mMAAAAJ}
 \social[osf][osf.io/wvr3s]{wvr3s}
@@ -348,7 +338,7 @@
         % Secondary affiliation: \textit{University of Montreal}\\
         % PI: Michelle Carr \& Tore Nielsen
         Secondary affiliation: \textit{Leidos, Inc.}
-        \newline{PI: Rachel M. Markwald}
+        \newline{PI: Rachel M. Markwald \& Evan D. Chinoy}
     }
 
 \cventry
@@ -393,14 +383,13 @@
 \cventry
     {2013--2016}
     {BSc in Psychology}
-    {University of Missouri at St. Louis}
+    {University of Missouri at St. Louis} % chktex 12
     {}
     {}
     {
         Biology minor, Neuroscience certificate
         \newline{Advisor: Suzanne E. Welcome}
     }
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%  Articles  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -432,7 +421,6 @@
 \begin{flushleft}
     \printbibliography[type=article,title={Articles},prenote=legendarticles]
 \end{flushleft}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Grants}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -517,7 +505,6 @@
     {UMSL}{}{}
     {Does lucid dreaming improve recall of briefly presented visual scenes?}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Awards and Fellowships}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -588,7 +575,6 @@
 {Outstanding Poster in Natural and Life Sciences}
 {UMSL}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methods}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -626,7 +612,6 @@
 
 % \cvitem{Programming}{Python primarily, R and \LaTeX\addspace as needed}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Software Development}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -639,17 +624,31 @@
 }
 
 \softwareitem
+{krank}
+{Fetch curated dream reports}
+{remrama/krank}
+{maintainer}
+{active}
+
+\softwareitem
+{worn}
+{An app for logging wearable device use}
+{remrama/worn}
+{maintainer}
+{active}
+
+\softwareitem
 {YASA}
 {Analysis and visualization of polysomnographic data}
 {raphaelvallat/yasa}
-{major contributor}
+{maintainer}
 {active}
 
 \softwareitem
 {Pingouin}
 {Statistics in Python}
 {raphaelvallat/pingouin}
-{minor contributor}
+{contributor}
 {active}
 
 \softwareitem
@@ -658,8 +657,6 @@
 {remrama/flicker}
 {maintainer}
 {archived}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Service}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -714,12 +711,10 @@
 \cventry{2016--present}{Member}{International Association for the Study of Dreams}{IASD}{}{}
 \cventry{2015--present}{Member}{Psi Chi International Honor Society}{}{}{}
 
-
 % \cvitem{}{Memberships}
 % \cvlistdoubleitem{American Psychological Association}{Sleep Research Society}
 % \cvlistdoubleitem{Psi Chi International Honor Society}{Society for Neuroscience}
 % \cvlistdoubleitem{Psychonomic Society}{Vision Sciences Society}
-
 
 % \section{Mentorship}
 % \cventry{2024-2026}{Kevala Dodge}{Carnegie Vanguard High School AP Research\newline Analyzing Reddit to determine the effect of semaglutide use on nightmares}{}{}{}
@@ -745,7 +740,6 @@
 % \cventry{2021-2023}{Cameron Sandell}{John Jay High School Science Research Program\newline Can people intentionally wake up from a dream?}{}{}{}
 % \cvlistitem{\href{https://www.societyforscience.org/regeneron-sts/2023-scholars/}{Regeneron Science Talent Search (STS) scholar}}
 % \cvlistitem{IASD Ernest Hartmann Student Research Award}
-
 
 % \section{Teaching}
 % \cventry{Fall 2019}{Statistics and Research Design}{Assistant Instructor}{UT Austin}{}{}
@@ -802,10 +796,9 @@
 
 \teachingitem
 {Spri. 2014\&5}
-{Biology -- from Molecules to Organisms}
+{Biology -- from Molecules to Organisms} % chktex 8
 {Tutor}
 {UMSL}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Outreach}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -813,13 +806,13 @@
 
 \cventry{2023}{Cognitive Neuroscience Society Blog}{}{}{}{\httpslink[``Mentorship Enables a High School Senior to Lead Sleep Research Study'']{www.cogneurosociety.org/mentorship-enables-a-high-school-senior-to-lead-sleep-research-study}}
 \cventry{2020}{Invited speaker at UT OLLI FORUM seminar series}{ Austin, Texas}{}{}{Delivered ``The Science of Lucid Dreaming'' seminar to lifelong learning audience.}
-\cventry{2019}{Guest speaker at Cross Keys Middle School}{St. Louis, MO}{}{}{Communicated neuroscience of memory and dreams to middle school students.}
+\cventry{2019}{Guest speaker at Cross Keys Middle School}{St. Louis, MO}{}{}{Communicated neuroscience of memory and dreams to middle school students.} % chktex 12
 \cventry{2018}{Dell Medical School Health Sciences Summer Camp}{Austin, TX}{}{}{Designed and taught neuroscience lesson plans for middle and high school students.}
 \cventry{2017}{Dell Medical School Health Sciences Summer Camp}{Austin, TX}{}{}{Designed and taught neuroscience lesson plans for middle and high school students.}
 \cventry{2017}{Neuroscience Undergraduate Reading Program}{Austin, TX}{}{}{Mentored undergraduate neuroscience students on the research process.}
 \cventry{2017}{IE Pre-Graduate School Internship}{Austin, TX}{}{}{Mentored undergraduate students on the graduate application process.}
-\cventry{2017}{Quirks \& Quarks CBC radio interview}{}{}{}{Public radio interview, \httpslink[``Can we control computers with our dreams?'']{www.cbc.ca/radio/quirks/don-t-pee-in-the-pool-bees-play-ball-and-lucid-dreaming-1.4008562/can-we-control-computers-with-our-dreams-1.4008629}}
-\cventry{2016}{Science Center First Fridays: Dreams and Nightmares}{St. Louis, MO}{}{}{Communicated science behind the movie Inception to an audience of $\sim$500 and ran a lucid dream induction workshop.}
+\cventry{2017}{Quirks \& Quarks CBC radio interview}{}{}{}{Public radio interview, \httpslink[``Can we control computers with our dreams?'']{www.cbc.ca/radio/quirks/don-t-pee-in-the-pool-bees-play-ball-and-lucid-dreaming-1.4008562/can-we-control-computers-with-our-dreams-1.4008629}} % chktex 38
+\cventry{2016}{Science Center First Fridays: Dreams and Nightmares}{St. Louis, MO}{}{}{Communicated science behind the movie Inception to an audience of $\sim$500 and ran a lucid dream induction workshop.} % chktex 12
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%  REFERENCES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -841,7 +834,6 @@
 % \referenceitem{Gregory Scott Sparrow}{gregory.sparrow@utrgv.edu}
 % \referenceitem{Suzanne Welcome}{swelcome@unr.edu}
 
-
 \nocite{*}
 \defbibnote{legendpresentations}{
     \iconInvited~invited \hspace{8pt}
@@ -853,7 +845,5 @@
 \begin{flushleft}
     \printbibliography[type=booklet,title={Presentations},prenote=legendpresentations]
 \end{flushleft}
-
-
 
 \end{document}

@@ -1,0 +1,4 @@
+name: cv
+dependencies:
+  - conda-forge::make
+  - conda-forge::chktex
