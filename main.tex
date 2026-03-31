@@ -30,16 +30,16 @@
 % for luatex and xetex, do not use inputenc and fontenc
 % see https://tex.stackexchange.com/a/496643
 \ifxetexorluatex
-  \usepackage{fontspec}
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX}
-  \setmainfont{Latin Modern Roman}
-  \setsansfont{Latin Modern Sans}
-  \setmonofont{Latin Modern Mono}
-  \setmathfont{Latin Modern Math} 
+    \usepackage{fontspec}
+    \usepackage{unicode-math}
+    \defaultfontfeatures{Ligatures=TeX}
+    \setmainfont{Latin Modern Roman}
+    \setsansfont{Latin Modern Sans}
+    \setmonofont{Latin Modern Mono}
+    \setmathfont{Latin Modern Math} 
 \else
-  \usepackage[T1]{fontenc}
-  \usepackage{lmodern}
+    \usepackage[T1]{fontenc}
+    \usepackage{lmodern}
 \fi
 
 % document language
@@ -109,30 +109,30 @@
 
 % ydnt
 \DeclareSortingTemplate{ydmdddnt}{
-  \sort{
-    \field{presort}
-  }
-  \sort[final]{
-    \field{sortkey}
-  }
-  \sort[direction=descending]{
-    \field{pubstate}
-    \field{sortyear}
-    \field{year}
-    \literal{9999}
-  }
-  \sort[direction=descending]{
-    \field{month}
-    \field{day}
-  }
-  \sort{
-    \field{sortname}
-    \field{author}
-    \field{editor}
-    \field{translator}
-    \field{sorttitle}
-    \field{title}
-  }
+    \sort{
+        \field{presort}
+    }
+    \sort[final]{
+        \field{sortkey}
+    }
+    \sort[direction=descending]{
+        % \field{pubstate}
+        \field{sortyear}
+        \field{year}
+        \literal{9999}
+    }
+    \sort[direction=descending]{
+        \field{month}
+        \field{day}
+    }
+    \sort{
+        \field{sortname}
+        \field{author}
+        \field{editor}
+        \field{translator}
+        \field{sorttitle}
+        \field{title}
+    }
 }
 
 % % Customizing the journal title format
@@ -223,49 +223,49 @@
 
 % Custom strings for publication states
 \DefineBibliographyStrings{english}{
-  forthcoming = {forthcoming},
-  inpreparation = {in prep},
-  inpress = {in press},
-  prepublished = {prepublished},
-  submitted = {submitted},
-  underreview = {under review},
-  underrevision = {under revision},
+    forthcoming = {forthcoming},
+    inpreparation = {in prep},
+    inpress = {in press},
+    prepublished = {prepublished},
+    submitted = {submitted},
+    underreview = {under review},
+    underrevision = {under revision},
 }
 
 % Custom sorting order for publication states
 \DeclareSourcemap{
-  \maps[datatype=bibtex]{
-    \map{
-      \step[fieldsource=pubstate, match=inpreparation, fieldset=sortyear, fieldvalue={3005}]
-      \step[fieldsource=pubstate, match=submitted, fieldset=sortyear, fieldvalue={3004}]
-      \step[fieldsource=pubstate, match=underreview, fieldset=sortyear, fieldvalue={3003}]
-      \step[fieldsource=pubstate, match=underrevision, fieldset=sortyear, fieldvalue={3002}]
-      \step[fieldsource=pubstate, match=inpress, fieldset=sortyear, fieldvalue={3001}]
-      \step[fieldsource=pubstate, match=forthcoming, fieldset=sortyear, fieldvalue={3000}]
+    \maps[datatype=bibtex]{
+        \map{
+            \step[fieldsource=pubstate, match=inpreparation, fieldset=sortyear, fieldvalue={3005}]
+            \step[fieldsource=pubstate, match=submitted, fieldset=sortyear, fieldvalue={3004}]
+            \step[fieldsource=pubstate, match=underreview, fieldset=sortyear, fieldvalue={3003}]
+            \step[fieldsource=pubstate, match=underrevision, fieldset=sortyear, fieldvalue={3002}]
+            \step[fieldsource=pubstate, match=inpress, fieldset=sortyear, fieldvalue={3001}]
+            \step[fieldsource=pubstate, match=forthcoming, fieldset=sortyear, fieldvalue={3000}]
+        }
     }
-  }
 }
 
 \defbibenvironment{bibliography}
-  {\list
-     {\iffieldundef{year}
-        {\iffieldequals{pubstate}{\bibpubstate}
-           {}
-           {\printfield{pubstate}%
-            \savefield{pubstate}{\bibpubstate}}}
-        {\iffieldequals{year}{\bibyear}
-           {}
-           {\printfield{year}%
-            \savefield{year}{\bibyear}}}}
-     {\setlength{\topsep}{0pt}% layout parameters based on moderncvstyleclassic.sty
-      \setlength{\labelwidth}{\hintscolumnwidth}%
-      \setlength{\labelsep}{\separatorcolumnwidth}%
-      \setlength{\itemsep}{\bibitemsep}%
-      \leftmargin\labelwidth%
-      \advance\leftmargin\labelsep}% chktex 41
-      \sloppy\clubpenalty4000\widowpenalty4000}
-  {\endlist}
-  {\item}
+    {\list
+        {\iffieldundef{year}
+            {\iffieldequals{pubstate}{\bibpubstate}
+                {}
+                {\printfield{pubstate}%
+                \savefield{pubstate}{\bibpubstate}}}
+            {\iffieldequals{year}{\bibyear}
+                {}
+                {\printfield{year}%
+                \savefield{year}{\bibyear}}}}
+        {\setlength{\topsep}{0pt}% layout parameters based on moderncvstyleclassic.sty
+            \setlength{\labelwidth}{\hintscolumnwidth}%
+            \setlength{\labelsep}{\separatorcolumnwidth}%
+            \setlength{\itemsep}{\bibitemsep}%
+            \leftmargin\labelwidth%
+            \advance\leftmargin\labelsep}% chktex 41
+        \sloppy\clubpenalty4000\widowpenalty4000}
+    {\endlist}
+    {\item}
 
 \addbibresource{preprints.bib}
 \addbibresource{publications.bib}
@@ -309,10 +309,10 @@
 \social[orcid]{0000-0001-6183-3098} % chktex 8
 \social[researchgate]{Remington-Mallett}
 \social[googlescholar]{JyiK9mMAAAAJ}
-\social[osf][osf.io/wvr3s]{wvr3s}
 \social[zotero][www.zotero.org/remrama]{remrama}
 \social[github]{remrama}
 \social[youtube]{remrama}
+\social[osf][osf.io/wvr3s]{wvr3s}
 % \social[maps][maps.app.goo.gl/hM9bvh1CLmvpUpqg9]{Universit\'e de Montr\'eal}
 
 \makecvtitle
